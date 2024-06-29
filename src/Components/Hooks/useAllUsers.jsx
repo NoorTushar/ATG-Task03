@@ -2,7 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const useAllUsers = () => {
-   const { data: users = [], isLoading } = useQuery({
+   const {
+      data: users = [],
+      isLoading,
+      isError,
+   } = useQuery({
       queryKey: ["users"],
       queryFn: async () => {
          const { data } = await axios(
@@ -13,7 +17,7 @@ const useAllUsers = () => {
       },
    });
 
-   return [users, isLoading];
+   return [users, isLoading, isError];
 };
 
 export default useAllUsers;

@@ -1,37 +1,39 @@
 /* eslint-disable react/prop-types */
-
+import { useState } from "react";
 import { TfiEmail } from "react-icons/tfi";
+import defaultPic from "../../assets/default-pic.png";
 
 const ProfileCard = ({ user, handleShowDetails }) => {
+   const [imgSrc, setImgSrc] = useState(defaultPic);
+
+   const handleImageError = () => {
+      setImgSrc(defaultPic);
+   };
+
+   const handleImageLoad = () => {
+      setImgSrc(user.avatar);
+   };
+
    return (
-      <div className="p-8 flex flex-wrap space-x-6 dark:bg-gray-50 dark:text-gray-800">
-         <div className="flex-shrink-0 w-full mb-6  sm:mb-0">
-            <img
-               src={user.avatar}
-               alt={user?.profile?.username}
-               className="object-cover object-center size-20 rounded-full dark:bg-gray-500"
-            />
-         </div>
-         <div className="flex flex-col space-y-4">
-            <div>
-               <h2 className="text-2xl font-semibold">
-                  {user?.profile?.username}
-               </h2>
-               <span className="text-sm dark:text-gray-600">
-                  {user?.jobTitle}
-               </span>
-            </div>
+      <div className="p-8 bg-slate-800 text-slate-200 rounded-xl">
+         <img
+            src={imgSrc}
+            alt={user.name}
+            onError={handleImageError}
+            onLoad={handleImageLoad}
+            className="object-cover object-center size-20 rounded-full"
+         />
 
-            <div className="flex items-center space-x-2">
+         <div className="space-y-2">
+            <h2 className="text-lg font-semibold">{user?.profile?.username}</h2>
+            <span className="text-sm">{user?.jobTitle}</span>
+            <div className="flex items-center space-x-2 text-sm">
                <TfiEmail />
-               <span className="dark:text-gray-600">
-                  {user?.profile?.email}
-               </span>
+               <span>{user?.profile?.email}</span>
             </div>
-
             <button
                onClick={() => handleShowDetails(user.id)}
-               className="btn btn-sm btn-primary bg-violet-600 text-white"
+               className="btn btn-xs btn-primary text-white h-8 w-24"
             >
                View Details
             </button>

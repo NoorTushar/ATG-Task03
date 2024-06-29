@@ -6,12 +6,21 @@ import LoadingSpinner from "./Components/Shared/LoadingSpinner";
 import { useState } from "react";
 
 function App() {
-   const [users, isLoading] = useAllUsers();
+   const [users, isLoading, isError] = useAllUsers();
    const [singleData, setSingleData] = useState({});
    const [singleDataLoading, setSingleDataLoading] = useState(false);
-   const [showDetailsCard, setShowDetailsCard] = useState(false);
+   const [showDetailsCard, setShowDetailsCard] = useState(true);
 
    if (isLoading) return <LoadingSpinner />;
+
+   if (isError)
+      return (
+         <div className="p-10 relative min-h-screen flex flex-col items-center justify-center">
+            <p className="text-2xl">
+               No data to show at the moment. Please try again later.
+            </p>
+         </div>
+      );
 
    const handleShowDetails = async (id) => {
       setSingleDataLoading(true);
@@ -25,10 +34,13 @@ function App() {
    };
 
    return (
-      <div className="p-10 ">
-         <h3>Total Users : {users?.length}</h3>
-         <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-5 space-y-6 ">
+      <div className="p-10 relative bg-slate-900">
+         <h3 className="text-xl mb-6">
+            Total Users : {users?.length > 0 ? users?.length : "0"}
+         </h3>
+         <div className="grid grid-cols-12">
+            {/* Left */}
+            <div className="space-y-6 max-h-[calc(100vh-140px)] overflow-y-scroll col-span-4 ">
                {users.map((user, index) => (
                   <ProfileCard
                      key={index}
@@ -37,7 +49,8 @@ function App() {
                   />
                ))}
             </div>
-            <div className="col-span-7">
+            {/* Right */}
+            <div className="col-span-8 m-10 mt-0">
                <ProfileDetailsCard
                   singleData={singleData}
                   singleDataLoading={singleDataLoading}

@@ -9,7 +9,7 @@ function App() {
    const [users, isLoading, isError] = useAllUsers();
    const [singleData, setSingleData] = useState({});
    const [singleDataLoading, setSingleDataLoading] = useState(false);
-   const [showDetailsCard, setShowDetailsCard] = useState(true);
+   const [showDetailsCard, setShowDetailsCard] = useState(false);
 
    if (isLoading) return <LoadingSpinner />;
 

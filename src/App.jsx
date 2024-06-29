@@ -9,6 +9,7 @@ function App() {
    const [users, isLoading] = useAllUsers();
    const [singleData, setSingleData] = useState({});
    const [singleDataLoading, setSingleDataLoading] = useState(false);
+   const [showDetailsCard, setShowDetailsCard] = useState(false);
 
    if (isLoading) return <LoadingSpinner />;
 
@@ -18,6 +19,7 @@ function App() {
          `https://602e7c2c4410730017c50b9d.mockapi.io/users/${id}`
       );
       console.log(data);
+      setShowDetailsCard(true);
       setSingleData(data);
       setSingleDataLoading(false);
    };
@@ -35,10 +37,11 @@ function App() {
                   />
                ))}
             </div>
-            <div className="col-span-7 relative">
+            <div className="col-span-7">
                <ProfileDetailsCard
                   singleData={singleData}
                   singleDataLoading={singleDataLoading}
+                  showDetailsCard={showDetailsCard}
                />
             </div>
          </div>

@@ -50,7 +50,7 @@ const App = () => {
                   )}
 
                   {selectedUser && openModal && (
-                     <div className="space-y-1 lg:w-[500px] lg:h-[400px] text-primary lg:relative absolute right-0 lg:top-0 lg:right-0 top-[45%] left-0 bottom-0 shadow-lg shadow-violet-500 p-10  bg-black break-words rounded-lg border border-violet-500">
+                     <div className="space-y-1 lg:w-[500px] lg:h-[400px] text-primary lg:relative absolute right-0 lg:top-0 lg:right-0 top-[35%] left-0 bottom-0 shadow-lg shadow-violet-500 p-10  bg-black break-words rounded-lg border border-violet-500">
                         <div className="mb-4 relative flex justify-center ">
                            {isImageLoading && (
                               <img

@@ -32,9 +32,9 @@ const Card = ({ user, handleShowDetails }) => {
          />
          <div className="">
             <h2 className="text-xl text-primary group-hover:text-violet-500 duration-300">
-               {user?.profile?.username}
+               {user?.profile?.username || "No data to show"}
             </h2>
-            <p className="text-sm">{user?.jobTitle}</p>
+            <p className="text-sm">{user?.jobTitle || "No data to show"}</p>
          </div>
       </div>
    );

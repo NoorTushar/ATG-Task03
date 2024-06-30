@@ -1,4 +1,5 @@
-import dummyImage from "../../assets/default-pic.png";
+/* eslint-disable react/prop-types */
+import dummyImage from "../../assets/person-dummy.jpg";
 const Card = ({ user, handleShowDetails }) => {
    return (
       <div

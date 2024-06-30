@@ -40,8 +40,8 @@ const App = () => {
                )}
 
                {selectedUser && openModal && (
-                  <div className="space-y-1 text-primary lg:relative absolute right-0 lg:top-0 lg:right-0 top-1/3 left-0 bottom-0 shadow-md shadow-violet-500 p-4 sm:p-8 lg:p-10 bg-black break-words rounded-lg">
-                     <div className="mb-4 relative flex justify-center">
+                  <div className="space-y-1 text-primary lg:relative absolute right-0 lg:top-0 lg:right-0 top-1/3 left-0 bottom-0 shadow-md shadow-violet-500 p-4 sm:p-8 lg:p-10 bg-black break-words rounded-lg border border-violet-500">
+                     <div className="mb-4 relative flex justify-center ">
                         <img
                            src={selectedUser?.avatar}
                            alt={selectedUser?.profile?.username}

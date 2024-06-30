@@ -1,7 +1,10 @@
 import dummyImage from "../../assets/default-pic.png";
-const Card = ({ user }) => {
+const Card = ({ user, handleShowDetails }) => {
    return (
-      <div className="flex items-center gap-4 p-8 bg-slate-800 m-4 rounded-lg shadow shadow-slate-400 hover:shadow-violet-500 duration-300 cursor-pointer group">
+      <div
+         onClick={() => handleShowDetails(user)}
+         className="flex items-center gap-4 p-8 bg-slate-800 m-4 rounded-lg shadow shadow-slate-400 hover:bg-slate-900 hover:shadow-violet-500 duration-300 cursor-pointer group"
+      >
          <img
             src={user?.avatar}
             alt={user?.profile?.username}

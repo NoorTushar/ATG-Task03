@@ -6,13 +6,7 @@ body {
    max-width: 1280px;
    margin: 0 auto;
 }
-
-[data-theme="synthwave"] h1 {
-   /* Styles specific to the synthwave theme */
-
-   font-size: 30px; /* Example background color for synthwave theme */
-}
-
-[data-theme="synthwave"] body {
+/* 
+[data-theme="dark"] body {
    color: #bbbbbb;
-}
+} */
